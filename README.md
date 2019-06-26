@@ -1,5 +1,31 @@
 # Phicomm N1
 
+## 00.Reference
+* https://isolated.site/category/n1/
+  * lots of good research posts
+  * inspired to reserve env/reserved partition as bad block and format single rootfs
+  * ex4load works with disable 64-bit feature
+* https://github.com/isjerryxiao/n1-setup/
+  * physical partition offset list
+* https://github.com/yangxuan8282/phicomm-n1
+  * alpine version, not work in my N1 box
+  * future research for pxe boot
+* Telegram
+  * https://t.me/flippingflooping
+  * ?????
+    * http://t.cn/Ew2ynzS ?? + ???????????????
+    * http://t.cn/Ew2Lr3L ?? Android ??
+    * http://t.cn/Ew2yk1X ? Linux
+    * http://t.cn/Ew2ySQG Armbian Ubuntu ???
+    * http://t.cn/Ew2yUh7 Armbian ?? dtb ??????
+    * http://t.cn/Ew2LFK8 ??????
+* https://github.com/150balbes
+  * Amlogic kernel/uboot/armbian/etc. upstream
+* http://linux-meson.com/doku.php
+  * Linux for Amlogic Meson
+* https://baylibre.com/category/amlogic/
+
+
 ## 01. U-Boot
 
 ### 01.1 logs/bins list

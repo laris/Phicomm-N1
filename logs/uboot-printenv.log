@@ -1,0 +1,76 @@
+gxl_p230_v1#printenv
+EnableSelinux=enforcing
+active_slot=_a
+aml_dt=gxl_p230_2g
+baudrate=115200
+bcb_cmd=get_valid_slot;
+boot_part=boot
+bootargs=rootfstype=ramfs init=/init console=ttyS0,115200 no_console_suspend earlyprintk=aml-uart,0xc81004c0 ramoops.pstore_en=1 ramoops.record_size=0x8000 ramoops.console_size=0x4000 androidboot.selinux=enforcing logo=osd1,loaded,0x3d800000,576cvbs maxcpus=4 vout=576cvbs,enable hdmimode=1080p60hz cvbsmode=576cvbs hdmitx= cvbsdrv=0 pq= android jtag=apao androidboot.hardware=amlogic androidboot.serialno=CAQDB3134K14564 mac=FC:7C:02:8C:49:18 androidboot.mac=FC:7C:02:8C:49:18 mac_wifi=fc:7c:02:8c:49:17 androidboot.mac_wifi=fc:7c:02:8c:49:17 androidboot.slot_suffix=_a quiet
+bootcmd=run storeboot
+bootdelay=1
+bootup_offset=0x1130180
+bootup_size=0x3f4846
+cmdline_keys=if keyman init 0x1234; then if keyman read usid ${loadaddr} str; then setenv bootargs ${bootargs} androidboot.serialno=${usid};setenv serial ${usid};fi;if keyman read mac ${loadaddr} str; then setenv bootargs ${bootargs} mac=${mac} androidboot.mac=${mac};fi;if keyman read deviceid ${loadaddr} str; then setenv bootargs ${bootargs} androidboot.deviceid=${deviceid};fi;if keyman read mac_wifi ${loadaddr} str; then setenv bootargs ${bootargs} mac_wifi=${mac_wifi} androidboot.mac_wifi=${mac_wifi};fi;fi;
+cvbs_drv=0
+cvbsmode=576cvbs
+display_bpp=16
+display_color_bg=0
+display_color_fg=0xffff
+display_color_index=16
+display_height=576
+display_layer=osd1
+display_width=720
+dtb_mem_addr=0x1000000
+ethact=dwmac.c9410000
+ethaddr=fc:7c:02:8c:49:18
+factory_reset_poweroff_protect=echo wipe_data=${wipe_data}; echo wipe_cache=${wipe_cache};if test ${wipe_data} = failed; then run init_display; run storeargs;if mmcinfo; then run recovery_from_sdcard;fi;if usb start 0; then run recovery_from_udisk;fi;run recovery_from_flash;fi; if test ${wipe_cache} = failed; then run init_display; run storeargs;if mmcinfo; then run recovery_from_sdcard;fi;if usb start 0; then run recovery_from_udisk;fi;run recovery_from_flash;fi;
+\actorystep=2
+
+fb_addr=0x3d800000
+fb_height=1080
+fb_width=1920
+fdt_high=0x20000000
+firstboot=0
+gatewayip=10.18.9.1
+hdmimode=1080p60hz
+hostname=arm_gxbb
+init_display=osd open;osd clear;imgread pic logo bootup $loadaddr;bmp display $bootup_offset;bmp scale
+initargs=rootfstype=ramfs init=/init console=ttyS0,115200 no_console_suspend earlyprintk=aml-uart,0xc81004c0 ramoops.pstore_en=1 ramoops.record_size=0x8000 ramoops.console_size=0x4000
+ipaddr=10.18.9.97
+jtag=apao
+kernellog.enable=0
+loadaddr=1080000
+mac=FC:7C:02:8C:49:18
+mac_wifi=fc:7c:02:8c:49:17
+maxcpus=4
+netmask=255.255.255.0
+outputmode=576cvbs
+preboot=run bcb_cmd; run factory_reset_poweroff_protect;run upgrade_check;run init_display;run storeargs;run upgrade_key;forceupdate;run switch_bootmode;
+reboot_mode=normal
+recovery.update=0
+recovery_from_flash=setenv bootargs ${bootargs} aml_dt=${aml_dt} recovery_part={recovery_part} recovery_offset={recovery_offset};if itest ${upgrade_step} == 3; then if ext4load mmc 1:2 ${dtb_mem_addr} /recovery/dtb.img; then echo cache dtb.img loaded; fi;if ext4load mmc 1:2 ${loadaddr} /recovery/recovery.img; then echo cache recovery.img loaded; wipeisb; bootm ${loadaddr}; fi;else fi;if imgread kernel ${recovery_part} ${loadaddr} ${recovery_offset}; then wipeisb; bootm ${loadaddr}; fi;
+recovery_from_sdcard=setenv bootargs ${bootargs} aml_dt=${aml_dt} recovery_part={recovery_part} recovery_offset={recovery_offset};if fatload mmc 0 ${loadaddr} aml_autoscript; then autoscr ${loadaddr}; fi;if fatload mmc 0 ${loadaddr} recovery.img; then if fatload mmc 0 ${dtb_mem_addr} dtb.img; then echo sd dtb.img loaded; fi;wipeisb; bootm ${loadaddr};fi;
+recovery_from_udisk=setenv bootargs ${bootargs} aml_dt=${aml_dt} recovery_part={recovery_part} recovery_offset={recovery_offset};if fatload usb 0 ${loadaddr} aml_autoscript; then autoscr ${loadaddr}; fi;if fatload usb 0 ${loadaddr} recovery.img; then if fatload usb 0 ${dtb_mem_addr} dtb.img; then echo udisk dtb.img loaded; fi;wipeisb; bootm ${loadaddr};fi;
+recovery_offset=0
+recovery_part=recovery
+sdc_burning=sdc_burn ${sdcburncfg}
+sdcburncfg=aml_sdc_burn.ini
+serial=CAQDB3134K14564
+serverip=10.18.9.113
+stderr=serial
+stdin=serial
+stdout=serial
+storeargs=setenv bootargs ${initargs} androidboot.selinux=${EnableSelinux} logo=${display_layer},loaded,${fb_addr},${outputmode} maxcpus=${maxcpus} vout=${outputmode},enable hdmimode=${hdmimode} cvbsmode=${cvbsmode} hdmitx=${cecconfig} cvbsdrv=${cvbs_drv}  pq=${pq} androidboot.firstboot=${firstboot} androidboot.factorystep=${factorystep} jtag=${jtag}; setenv bootargs ${bootargs} androidboot.hardware=amlogic;run cmdline_keys;setenv bootargs ${bootargs} androidboot.slot_suffix=${active_slot};if itest ${kernellog.enable} == 0; then setenv bootargs ${bootargs} quiet;else fi;
+storeboot=if imgread kernel ${boot_part} ${loadaddr}; then bootm ${loadaddr}; fi;run update;
+switch_bootmode=get_rebootmode;if test ${reboot_mode} = factory_reset; then run recovery_from_flash;else if test ${reboot_mode} = update; then run update;else if test ${reboot_mode} = cold_boot; then if test ${factorystep} = 0; then run try_auto_burn; fi;else if test ${reboot_mode} = fastboot; then fastboot;fi;fi;fi;fi;
+try_auto_burn=update 700 750;
+update=run usb_burning; run sdc_burning; if mmcinfo; then run recovery_from_sdcard;fi;if usb start 0; then run recovery_from_udisk;fi;run recovery_from_flash;
+upgrade_check=echo upgrade_step=${upgrade_step}; if itest ${upgrade_step} == 3; then run init_display; run storeargs; run update;else fi;
+upgrade_key=if gpio input GPIOAO_2; then echo detect upgrade key; sleep 3;if gpio input GPIOAO_2; then run update; fi;fi;
+upgrade_step=2
+usb_burning=update 1000
+usid=CAQDB3134K14564
+wipe_cache=successful
+wipe_data=successful
+
+Environment size: 5917/65532 bytes

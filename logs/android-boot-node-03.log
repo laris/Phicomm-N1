@@ -1,0 +1,69 @@
+gxl_p230_v1#run bootcmd
+[imgread]szTimeStamp[2018062814161282]
+[imgread]secureKernelImgSz=0xd94000
+aml log : R-2048 check pass!
+aml log : R2048 check pass!
+aml log : R2048 check pass!
+ee_gate_off ...
+mmc env offset: 0x27400000
+Writing to MMC(1)... done
+## Booting Android Image at 0x01080000 ...
+reloc_addr =73f5e400
+copy done
+Kernel command line: buildvariant=user
+load dtb from 0x1000000 ......
+      Amlogic multi-dtb tool
+      Single dtb detected
+   Uncompressing Kernel Image ... OK
+   kernel loaded at 0x01080000, end = 0x021e9c98
+   Loading Ramdisk to 73894000, end 73ec7000 ... OK
+   Loading Device Tree to 000000001fff2000, end 000000001ffff6b8 ... OK
+fdt_instaboot: no instaboot image
+
+Starting kernel ...
+
+uboot time: 258308806 us
+[    0.000000@0] Initializing cgroup subsys cpu
+[    0.000000@0] Initializing cgroup subsys cpuacct
+[    0.000000@0] Linux version 3.14.29-00008-ga4675f0 (jenkins@slave2) (gcc version 4.9.3 (Ubuntu/Linaro 4.9.3-13ubuntu2) ) #1 SMP PREEMPT Wed Jun 20 17:11:41 CST 2018
+[    0.000000@0] CPU: AArch64 Processor [410fd034] revision 4
+[    0.000000@0] no prop version_code
+[    0.000000@0] bootconsole [earlycon0] enabled
+[    0.000000@0] Reserved memory: incorrect alignment of CMA region
+[    0.000000@0] [amvecm] pq string error !!!
+[    0.187639@0] genirq: Setting trigger mode 8 for irq 241 failed (gic_set_type+0x0/0xbc)
+[    0.190139@0] genirq: Setting trigger mode 8 for irq 242 failed (gic_set_type+0x0/0xbc)
+[    0.198324@0] genirq: Setting trigger mode 8 for irq 241 failed (gic_set_type+0x0/0xbc)
+[    0.206229@0] genirq: Setting trigger mode 8 for irq 242 failed (gic_set_type+0x0/0xbc)
+domain-0 init dvfs: 4
+[    0.228323@0] tv_vout: chrdev devno 266338304 for disp
+[    0.242409@0] 1507 node need 400ms
+[    0.921817@0] Initramfs unpacking failed: junk in compressed archive
+[    1.003487@0] mtdoops: mtd device (mtddev=name/number) must be supplied
+[    1.134058@0] amlogic-new-usb3 d0078080.usb3phy: This phy has no usb port
+[    1.140075@0] ATVR driver - init called!
+[    1.148689@0] get_storage_dev return 1
+[    1.295193@0] DI-di_probe: get flag_cma error.
+[    1.297176@0] PPMGRDRV: err: ppmgr_driver_probe called
+efuse_pw_en: 0x7
+WARNING! efuse bits is disabled
+Enable A53 JTAG to AO
+[    1.329044@0] cectx aocec: no hdmirx reg resource
+[    1.329074@0] cectx aocec: no hhi reg resource
+[    1.562323@0] aml_snd_m8_card aml_m8_snd.47: ASoC: no source widget found for LOUTL
+[    1.564430@0] aml_snd_m8_card aml_m8_snd.47: ASoC: Failed to add route LOUTL -> direct -> Ext Spk
+[    1.573176@0] aml_snd_m8_card aml_m8_snd.47: ASoC: no source widget found for LOUTR
+[    1.580725@0] aml_snd_m8_card aml_m8_snd.47: ASoC: Failed to add route LOUTR -> direct -> Ext Spk
+[    [    1.933109@2] init: waitpid failed: No child processes
+[    1.935964@2] init: ignored duplicate definition of service 'adbd'init: (Parsing /init.usb.rc took 0.00s.)
+[    1.943074@2] init: /init.amlogic.rc: 277: chmod requires 2 arguments
+[    1.952001@2] init: ignored duplicate definition of service 'smbd'init: ignored duplicate definition of service 'changepasswd'init: (Parsing /init.phicomm.samba.rc took 0.01s.)
+[    2.031847@2] init: insmod: open("/boot/optee.ko") failed: No such file or directoryinit: insmod: open("/boot/optee_armtz.ko") failed: No such file or directory
+[    2.330497@0] ueventd: Cannot set 'u:object_r:owntty_devicu[    2.336844@0] ueventd: Cannot set 'u:object_r:ptmx_device:s0' SELinux label on '/dev/ptmx' device (Permission denied)
+[    2.350102@0] ueventd: Cannot set 'u:object_r:console_device:s0' SELinux label on '/dev/console' device (Permission denied)
+[    2.900090@2] init: enter do_confirm_formated /dev/block/tee, /tee
+[    2.900715@2] init: blocksize 1024, bytes_per_inode 1024
+[    2.905896@2] init: do_confirm_formated ext4 try mount
+[    2.997312@0] accelerate:
+[    2.997312@0] kernel start with quiet!
+p230:/ $

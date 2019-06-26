@@ -1,0 +1,178 @@
+reset; picocom -b 115200 /dev/tty.wchusbserial14210
+
+picocom v3.1
+
+port is        : /dev/tty.wchusbserial14210
+flowcontrol    : none
+baudrate is    : 115200
+parity is      : none
+databits are   : 8
+stopbits are   : 1
+escape is      : C-a
+local echo is  : no
+noinit is      : no
+noreset is     : no
+hangup is      : no
+nolock is      : no
+send_cmd is    : sz -vv
+receive_cmd is : rz -vv -E
+imap is        :
+omap is        :
+emap is        : crcrlf,delbs,
+logfile is     : none
+initstring     : none
+exit_after is  : not set
+exit is        : no
+
+Type [C-a] [C-h] to see available commands
+Terminal ready
+GXL:BL1:9ac50e:bb16dc;FEAT:BDFC31BC:0;POC:3;RCY:0;EMMC:0;READ:0;0.0;0.0;CHK:0;
+TE: 405960
+
+BL2 Built : 11:58:42, May 27 2017.
+gxl gc3c9a84 - xiaobo.gu@droid05
+
+set vdd cpu_a to 1120 mv
+set vdd cpu_b to 1050 mv
+set vddee to 1000 mv
+Board ID = 4
+CPU clk: 1200MHz
+DQS-corr enabled
+DDR scramble enabled
+DDR3 chl: Rank0+1 @ 912MHz - PASS
+Rank0: 1024MB(auto)-2T-13
+Rank1: 1024MB(auto)-2T-13
+DataBus test pass!
+AddrBus test pass!
+-s
+Load fip header from eMMC, src: 0x0000c200, des: 0x01400000, size: 0x00004000
+aml log : R2048 check pass!
+New fip structure!
+Load bl30 from eMMC, src: 0x00010200, des: 0x01700000, size: 0x0000d600
+aml log : R2048 check pass!
+Load bl31 from eMMC, src: 0x00020200, des: 0x01700000, size: 0x0002c600
+aml log : R2048 check pass!
+Load bl33 from eMMC, src: 0x00050200, des: 0x01700000, size: 0x00053400
+aml log : R2048 check pass!
+NOTICE:  BL3-1: v1.0(release):a625749
+NOTICE:  BL3-1: Built : 11:25:15, Aug 25 2017
+[BL31]: GXL CPU setup!
+NOTICE:  BL31: BL33 decompress pass
+mpu_config_enable:ok
+[Image: gxl_v1.1.3243-377db0f 2017-09-07 11:28:58 qiufang.dai@droid07]
+OPS=0x04
+43 c1 41 c2 f5 ca 88 36 ce d2 d2 69 [0.994488 Inits done]
+secure task start!
+high task start!
+low task start!
+ERROR:   Error initializing runtime service opteed_fast
+
+
+U-Boot 2015.01-00010-gfe36fb9-dirty (Mar 17 2018 - 12:20:04)
+
+DRAM:  2 GiB
+Relocation Offset is: 76ed9000
+register usb cfg[0][1] = 0000000077f5d368
+[CANVAS]canvas init
+vpu: error: vpu: check dts: FDT_ERR_BADMAGIC, load default parameters
+vpu: clk_level = 7
+vpu: set clk: 666667000Hz, readback: 666660000Hz(0x300)
+vpu: vpu_clk_gate_init_off
+vpp: vpp_init
+MMC:   aml_priv->desc_buf = 0x0000000073ed9640
+aml_priv->desc_buf = 0x0000000073edb960
+SDIO Port B: 0, SDIO Port C: 1
+emmc/sd response timeout, cmd8, status=0x3ff2800
+emmc/sd response timeout, cmd55, status=0x3ff2800
+init_part() 293: PART_TYPE_AML
+[mmc_init] mmc init success
+dtb magic 71b104da
+aml log : R2048 check pass!
+      Amlogic multi-dtb tool
+      Multi dtb detected
+      Multi dtb tool version: v2 .
+      Support 2 dtbs.
+        aml_dt soc: gxl platform: p230 variant: 2g
+        dtb 0 soc: gxl   plat: p230   vari: 1g
+        dtb 1 soc: gxl   plat: p230   vari: 2g
+      Find match dtb: 1
+start dts,buffer=0000000073ede1b0,dt_addr=0000000073ee91b0
+      Amlogic multi-dtb tool
+      Multi dtb detected
+      Multi dtb tool version: v2 .
+      Support 2 dtbs.
+        aml_dt soc: gxl platform: p230 variant: 2g
+        dtb 0 soc: gxl   plat: p230   vari: 1g
+        dtb 1 soc: gxl   plat: p230   vari: 2g
+      Find match dtb: 1
+parts: 10
+00:      logo	0000000002000000 1
+01:  recovery	0000000002000000 1
+02:       rsv	0000000000800000 1
+03:       tee	0000000000800000 1
+04:     crypt	0000000002000000 1
+05:      misc	0000000002000000 1
+06:      boot	0000000002000000 1
+07:    system	0000000050000000 1
+08:     cache	0000000020000000 2
+09:      data	ffffffffffffffff 4
+init_part() 293: PART_TYPE_AML
+eMMC/TSD partition table have been checked OK!
+check pattern success
+mmc env offset: 0x27400000
+In:    serial
+Out:   serial
+Err:   serial
+reboot_mode=cold_boot
+hpd_state=0
+cvbs performance type = 6, table = 0
+[store]To run cmd[emmc dtb_read 0x1000000 0x40000]
+_verify_dtb_checksum()-917: calc 1a448ef0, store 1a448ef0
+_verify_dtb_checksum()-917: calc 1a448ef0, store 1a448ef0
+dtb_read()-1039: total valid 2
+dtb_read()-1106: do nothing
+aml log : R2048 check pass!
+      Amlogic multi-dtb tool
+      Multi dtb detected
+      Multi dtb tool version: v2 .
+      Support 2 dtbs.
+        aml_dt soc: gxl platform: p230 variant: 2g
+        dtb 0 soc: gxl   plat: p230   vari: 1g
+        dtb 1 soc: gxl   plat: p230   vari: 2g
+      Find match dtb: 1
+vpp: vpp_pq_load pq val error !!!
+Net:   Phy 0 not found
+dwmac.c9410000amlkey_init() enter!
+[EFUSE_MSG]keynum is 4
+[BL31]: tee size: 0
+
+Start read misc partition datas!
+info->attemp_times = 0
+info->active_slot = 0
+info->slot_info[0].bootable = 1
+info->slot_info[0].online = 1
+info->slot_info[1].bootable = 0
+info->slot_info[1].online = 0
+info->attemp_times = 0
+attemp_times = 0
+active slot = 0
+wipe_data=successful
+wipe_cache=successful
+upgrade_step=2
+[OSD]load fb addr from dts
+[OSD]fb_addr for logo: 0x7f851000
+[OSD]load fb addr from dts
+[OSD]fb_addr for logo: 0x7f851000
+[CANVAS]addr=0x7f851000 width=3840, height=2160
+amlkey_init() enter!
+amlkey_init() 71: already init!
+[EFUSE_MSG]keynum is 4
+[BL31]: tee size: 0
+[BL31]: tee size: 0
+[BL31]: tee size: 0
+[BL31]: tee size: 0
+[BL31]: tee size: 0
+[KM]Error:f[key_manage_query_size]L507:key[deviceid] not programed yet
+gpio: pin GPIOAO_2 (gpio 102) value is 1
+Hit Enter or space or Ctrl+C key to stop autoboot -- :  0
+gxl_p230_v1#<INTERRUPT>

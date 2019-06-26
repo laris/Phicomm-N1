@@ -1,0 +1,30 @@
+p230:/ # ls -l /dev/block/
+total 0
+brw------- 1 root root 179,  11 2015-01-01 08:04 boot
+brw------- 1 root root 179,   1 2015-01-01 08:04 bootloader
+brw------- 1 root root 179,   3 2015-01-01 08:04 cache
+brw------- 1 root root 179,   9 2015-01-01 08:04 crypt
+brw------- 1 root root 179,  13 2015-01-01 08:04 data
+brw------- 1 root root 179,   4 2015-01-01 08:04 env
+brw------- 1 root root 179,   5 2015-01-01 08:04 logo
+brw------- 1 root root   7,   0 2015-01-01 08:04 loop0
+brw------- 1 root root   7,   1 2015-01-01 08:04 loop1
+brw------- 1 root root   7,   2 2015-01-01 08:04 loop2
+brw------- 1 root root   7,   3 2015-01-01 08:04 loop3
+brw------- 1 root root   7,   4 2015-01-01 08:04 loop4
+brw------- 1 root root   7,   5 2015-01-01 08:04 loop5
+brw------- 1 root root   7,   6 2015-01-01 08:04 loop6
+brw------- 1 root root   7,   7 2015-01-01 08:04 loop7
+brw------- 1 root root 179,  10 2015-01-01 08:04 misc
+brw------- 1 root root 179,   0 2015-01-01 08:04 mmcblk0
+brw------- 1 root root 179,  32 2015-01-01 08:04 mmcblk0boot0
+brw------- 1 root root 179,  64 2015-01-01 08:04 mmcblk0boot1
+brw------- 1 root root 179,  96 2015-01-01 08:04 mmcblk0rpmb
+drwxr-xr-x 3 root root       60 2015-01-01 08:04 platform
+brw------- 1 root root 179,   6 2015-01-01 08:04 recovery
+brw------- 1 root root 179,   2 2015-01-01 08:04 reserved
+brw------- 1 root root 179,   7 2015-01-01 08:04 rsv
+brw------- 1 root root 179,  12 2015-01-01 08:04 system
+brw------- 1 root root 179,   8 2015-01-01 08:04 tee
+drwx------ 2 root root       40 2015-01-01 08:04 vold
+brw------- 1 root root 253,   0 2015-01-01 08:04 zram0

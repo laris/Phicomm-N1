@@ -1,0 +1,17 @@
+p230:/ # cat fstab.amlogic
+# Android fstab file.
+#<src>                                                  <mnt_point>         <type>    <mnt_flags and options>                       <fs_mgr_flags>
+# The filesystem that contains the filesystem checker binary (typically /system) cannot
+# specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
+
+/dev/block/misc       /misc               emmc      defaults      defaults
+/dev/block/system     /system             ext4      ro                                                    wait
+/dev/block/cache      /cache              ext4      noatime,nosuid,nodev,nodelalloc,nomblk_io_submit,errors=panic    wait,check
+/dev/block/data       /data               ext4      noatime,nosuid,nodev,nodelalloc,nomblk_io_submit,errors=panic    wait,check,encryptable=footer
+/devices/*.sd/mmc_host/sd*  auto                auto      defaults                       voldmanaged=sdcard1:auto,noemulatedsd
+/devices/*dwc3/xhci-hcd.0.auto/usb?/*/host*/target*/block/sd*  auto             auto      defaults                       voldmanaged=udisk:auto
+/devices/*dwc3/xhci-hcd.0.auto/usb?/*/host*/target*/block/sr*  auto             auto      defaults                       voldmanaged=sr0:auto
+/dev/block/loop     auto                loop      defaults                                  voldmanaged=loop:auto
+# Add for zram. zramsize can be in numeric (byte) , in percent
+/dev/block/zram0     /swap_zram0             swap      defaults                             wait,zramsize=524288000
+/dev/block/tee       /tee                 ext4      noatime,nosuid,nodev,nodelalloc,nomblk_io_submit,errors=panic    wait,check

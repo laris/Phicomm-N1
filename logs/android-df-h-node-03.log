@@ -1,0 +1,13 @@
+p230:/ # df -h
+Filesystem        Size  Used Avail Use% Mounted on
+tmpfs             907M  492K  907M   1% /dev
+tmpfs             907M     0  907M   0% /mnt
+/dev/block/system 1.1G  986M  204M  83% /system
+/dev/block/cache  496M  788K  495M   1% /cache
+/dev/block/data   4.3G  279M  4.0G   7% /data
+/dev/block/tee    4.9M   35K  4.9M   1% /tee
+tmpfs             907M     0  907M   0% /storage
+/dev/fuse         4.3G  279M  4.0G   7% /mnt/runtime/default/emulated
+/dev/fuse         4.3G  279M  4.0G   7% /storage/emulated
+/dev/fuse         4.3G  279M  4.0G   7% /mnt/runtime/read/emulated
+/dev/fuse         4.3G  279M  4.0G   7% /mnt/runtime/write/emulated

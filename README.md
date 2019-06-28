@@ -12,13 +12,13 @@
   * future research for pxe boot
 * Telegram
   * https://t.me/flippingflooping
-  * ?????
-    * http://t.cn/Ew2ynzS ?? + ???????????????
-    * http://t.cn/Ew2Lr3L ?? Android ??
-    * http://t.cn/Ew2yk1X ? Linux
-    * http://t.cn/Ew2ySQG Armbian Ubuntu ???
-    * http://t.cn/Ew2yUh7 Armbian ?? dtb ??????
-    * http://t.cn/Ew2LFK8 ??????
+  * 群指定教程
+  * http://t.cn/Ew2ynzS 降级 + 刷官改（最新官改固件看下一行）
+  * http://t.cn/Ew2Lr3L 官改 Android 固件
+  * http://t.cn/Ew2yk1X 跑 Linux
+  * http://t.cn/Ew2ySQG Armbian Ubuntu 开热点
+  * http://t.cn/Ew2yUh7 Armbian 替换 dtb 解决断网问题
+  * http://t.cn/Ew2LFK8 变砖短接强刷
 
 * https://github.com/150balbes
   * Amlogic kernel/uboot/armbian/etc. upstream
